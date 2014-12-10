@@ -2,10 +2,10 @@ Ext.define('E1.model.Operm', {
     extend: 'Ext.data.Model',
     
     fields: [
-        { name: 'time', type: 'auto' },
-        { name: 'send', type: 'int' },
-        { name: 'reciv', type: 'int' },
-        { name: 'key_nums', type: 'int' }
+        { name: 'keyid', type: 'auto' },
+        { name: 'stuff1id', type: 'auto' },
+        { name: 'stuff2id', type: 'auto' },
+        { name: 'trtime', type: 'date', dateFormat: 'Y-n-d h:i:s A' }
 
     ]
 });

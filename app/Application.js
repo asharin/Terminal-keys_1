@@ -15,6 +15,7 @@ Ext.define('E1.Application', {
         // TODO: add global / shared stores here
     ],
     launch: function () {
+    var key_sel = 0;
         // TODO - Launch the application
     }
 });

@@ -1,15 +1,14 @@
-Ext.define('E1.view.grids.KeyGrid',{   
+Ext.define('E1.view.grids.TermGrid',{   
     extend: 'Ext.grid.Panel',
-	title:'Таблица ключей',
-    alias: 'widget.KeyGrid',
+	title:'Таблица Катамаранов',
+    alias: 'widget.TermGrid',
     tbar: [{
-    text: 'Add Key',
+    text: '+ Терминал',
     handler: 'onAddClick'
     }],
     layout:'fit',
-    store: 'Keys',
-    columns: [{text:'Id',dataIndex:'id', width:30}, 
-              {text:'Name',dataIndex:'name'},{text:'Hole',dataIndex:'hole'},
+    store: 'Katamarans',
+    columns: [{text:'Id',dataIndex:'id', width:30}, {text:'Код',dataIndex:'code'},{text:'Адресс',dataIndex:'adress'},
               {text: 'Del',
 	             xtype: 'actioncolumn',
                width: 30,

@@ -13,18 +13,31 @@ Ext.define('E1.view.main.MainController', {
     ],
 
     alias: 'controller.main',
-
     onRemoveClick: function () {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
     onAddClick: function(button) {
-                    console.log("Terminate" + button.up('grid').getId() );
-                    button.up('grid').getStore().insert(button.up('grid').getStore().count(),{id:0, name:'' ,hole:''});
+                    var store = button.up('grid').getStore();
+                    var dt = new Date();
+                    //var rec = new store.getModel({trtime: dt})
+                    console.log("add click " + dt.toString());
+                    store.insert(0,{trtime: dt,id:''});
                 },
     onDeleteClick: function(grid, rowIndex, colIndex) {
                     var rec = grid.getStore().getAt(rowIndex);
-                    alert("Terminate " + grid.getId());
+                    console.log("delete click " + grid.getId());
                     grid.getStore().removeAt(rowIndex);
+                },
+    onInfoClick: function(grid, rowIndex, colIndex,record, item) {
+                //console.log(grid.getStore().getAt(rowIndex).get('stuff2id'));
+                var rec = grid.getStore().getAt(rowIndex);
+                Ext.Msg.show({
+
+                    title: rec.get('trtime').toString(),
+                    width: 600,
+                    minHeigth:400,
+                    message:'Ключ: ' + rec.get('keyid') +'<br><br>f<br>f<br>f<br><br>'
+                })
                 },
     onConfirm: function (choice) {
         if (choice === 'yes') { 

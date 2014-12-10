@@ -30,39 +30,32 @@ Ext.define('E1.view.main.Main', {
             title: 'Ключи',
             layout: {
                 type: 'table',
-                columns:'2',
-                tdAttrs: { style: 'padding: 10px; vertical-align: top;' }},
-            items:[{
-            xtype:'KeyGrid'},{items:[{html: '<h2>Таблица ключей и таблица операций</h2>'},{   
-                height:'40%',
-                width:'500',
-                xtype: 'grid',
-                layout:'fit',
-                store: 'Opers',
-                columns: [{text:'Id',dataIndex:'id'},{text:'Name',dataIndex:'name'},{text: 'Hole',dataIndex:'hole'}]
-            }]}
-            ]
-        },{title: 'Техники',
+                columns:'2'},
+            items:[{xtype:'KeyGrid',
+                    width: 300,
+                    height: 500,
+                    padding:'20 20 0 10'},
+                   {xtype: 'OperGrid',
+                    width:700,
+                    height: 500,
+                    padding:'20 10 0 10'}
+                 ]
+                },
+            {title: 'Техники',
             items:[
-            {html: '<h2>Таблица техников</h2>'},
-            {   height:'500',
+            {   xtype: 'StuffGrid',
+                height:'500',
                 widht:'500',
-                xtype: 'grid',
-                layout:'fit',
-                store: 'Stuffs',
-                columns: [{text:'Id',dataIndex:'id'},{text:'Name',dataIndex:'name'},{text: 'Role',dataIndex:'role'}]
+                padding:'20 20 0 10'
             }
             ]
         },{
             title: 'Катамараны',
             items:[
-            {html: '<h2>Таблица терминалов</h2>'},
-            {   height:'500',
+            {   xtype: 'TermGrid',
+                height:'500',
                 widht:'500',
-                xtype: 'grid',
-                layout:'fit',
-                store: 'Katamarans',
-                columns: [{text:'Id',dataIndex:'id'},{text:'Code',dataIndex:'code'},{text: 'Adress',dataIndex:'adress'}]
+                padding:'20 20 0 10'
             }
             ]
         }]
