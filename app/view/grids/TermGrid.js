@@ -8,8 +8,17 @@ Ext.define('E1.view.grids.TermGrid',{
     }],
     layout:'fit',
     store: 'Katamarans',
-    columns: [{text:'Id',dataIndex:'id', width:30}, {text:'Код',dataIndex:'code'},{text:'Адресс',dataIndex:'adress'},
-              {text: 'Del',
+    selType: 'rowmodel',
+    plugins: {
+        ptype: 'rowediting',
+        clicksToEdit: 2
+    },
+    columns: [{xtype:'rownumberer'},
+              {text:'Код',dataIndex:'code',editor:{
+                xtype: 'textfield'}},
+              {text:'Адресс',dataIndex:'adress',editor:{
+                xtype: 'textfield'}},
+              {text: 'х',
 	             xtype: 'actioncolumn',
                width: 30,
                sortable: false,

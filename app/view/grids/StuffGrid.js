@@ -8,8 +8,17 @@ Ext.define('E1.view.grids.StuffGrid',{
     }],
     layout:'fit',
     store: 'Stuffs',
-    columns: [{text:'Id',dataIndex:'id', width:30}, {text:'Имя',dataIndex:'name'},{text:'Роль',dataIndex:'role'},
-              {text: 'Del',
+    selType: 'rowmodel',
+    plugins: {
+        ptype: 'rowediting',
+        clicksToEdit: 2
+    },
+    columns: [{xtype:'rownumberer'}, {text:'Имя',dataIndex:'name',editor:{
+                xtype: 'textfield'
+            }},{text:'Роль',dataIndex:'role',editor:{
+                xtype: 'textfield'
+            }},
+              {text: 'х',
 	             xtype: 'actioncolumn',
                width: 30,
                sortable: false,

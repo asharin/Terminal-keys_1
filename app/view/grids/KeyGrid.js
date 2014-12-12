@@ -8,9 +8,17 @@ Ext.define('E1.view.grids.KeyGrid',{
     }],
     layout:'fit',
     store: 'Keys',
-    columns: [{text:'Id',dataIndex:'id', width:30}, 
-              {text:'Name',dataIndex:'name'},{text:'Hole',dataIndex:'hole'},
-              {text: 'Del',
+    selType: 'rowmodel',
+    plugins: {
+        ptype: 'rowediting',
+        clicksToEdit: 2
+    },
+
+    columns: [{xtype:'rownumberer'}, 
+              {text:'id',dataIndex:'id',type:'numberfield'},
+              {text:'Имя',dataIndex:'name',editor:{type: 'textfield'}},
+              {text:'Терминал',dataIndex:'hole',editor:{type: 'textfield'}},
+              {text: 'х',
 	             xtype: 'actioncolumn',
                width: 30,
                sortable: false,

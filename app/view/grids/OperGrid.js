@@ -3,26 +3,25 @@ Ext.define('E1.view.grids.OperGrid',{
 	title: 'Таблица операций',
     alias: 'widget.OperGrid',  
     store: 'Opers',
-    selType: 'cellmodel',
+    selType: 'rowmodel',
     plugins: {
-        ptype: 'cellediting',
+        ptype: 'rowediting',
         clicksToEdit: 2
     },
     tbar: [{
     text: '+ Транзакция',
     handler: 'onAddClick'
     }],
-    columns: [{text:'Ключ',dataIndex:'keyid',editor: {
-                xtype: 'textfield',
-                allowBlank: false
-            }},
+    columns: [{xtype:'rownumberer'},
+              {text:'Ключ',dataIndex:'keyid',editor:{
+                xtype: 'textfield'
+            } },
     		  {text:'От Кого',dataIndex:'stuff1id',editor: {
-                xtype: 'textfield',
-                allowBlank: false
+                xtype: 'textfield'
             }},
     		  {text: 'Кому',dataIndex:'stuff2id',editor: {
                 xtype: 'textfield',
-                allowBlank: false
+                allowBlank:false
             }},
     		  {xtype: 'datecolumn',
            header: 'Время',
@@ -31,6 +30,7 @@ Ext.define('E1.view.grids.OperGrid',{
            flex: 1},
           {xtype: 'actioncolumn',
            width: 40,
+           text:'х',
            sortable: false,
            menuDisabled: true,
            items: [{
@@ -40,6 +40,7 @@ Ext.define('E1.view.grids.OperGrid',{
                    }]  
               },
           {xtype: 'actioncolumn',
+           text:'инф',
            width: 40,
            sortable: false,
            menuDisabled: true,
